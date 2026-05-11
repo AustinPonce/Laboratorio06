@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Inventario.DA/Productos.DA.csproj" Id="c2b08522-1750-403b-9676-71cf8f6bb0ad" />
+  <Project Path="Laboratorio04.Web/Productos.Web.csproj" />
+  <Project Path="Producto.BL/Productos.BL.csproj" Id="cdf301af-7549-44df-8556-5057c19bb9e6" />
+  <Project Path="Producto.SI/Productos.SI.csproj" Id="9322ab51-e5f4-4b5e-98cd-02fd08795e0c" />
+  <Project Path="Productos.Models/Productos.Models.csproj" Id="beddbbf5-d575-4daa-8649-571527b89a2c" />
+</Solution>

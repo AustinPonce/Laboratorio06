@@ -1,0 +1,87 @@
+﻿@model Productos.Models.Producto
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<h1>Crear Producto</h1>
+
+<form asp-action="Crear" asp-controller="Productos" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label"></label>
+
+        <input asp-for="Nombre"
+               class="form-control" />
+
+        <span asp-validation-for="Nombre"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Precio" class="form-label"></label>
+
+        <input asp-for="Precio"
+               type="number"
+               step="0.01"
+               class="form-control" />
+
+        <span asp-validation-for="Precio"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Categoria"
+               class="form-label"></label>
+
+        <select asp-for="Categoria"
+                class="form-select">
+
+            <option value="">
+                -- Seleccione --
+            </option>
+
+            <option>Electrónica</option>
+            <option>Hogar</option>
+            <option>Ropa</option>
+            <option>Alimentos</option>
+
+        </select>
+
+        <span asp-validation-for="Categoria"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-check">
+
+        <input asp-for="Activo"
+               class="form-check-input" />
+
+        <label asp-for="Activo"
+               class="form-check-label"></label>
+
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Crear
+    </button>
+
+    <a asp-action="Index"
+           class="btn btn-secondary">
+        Cancelar
+    </a>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
