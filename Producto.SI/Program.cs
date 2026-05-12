@@ -21,6 +21,20 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
 
+// =======================
+// CORS
+// =======================
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirReact",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 // Connection string
 string connectionString =
     "Data Source=productos.db";
@@ -56,6 +70,14 @@ if (app.Environment.IsDevelopment())
 
     app.UseSwaggerUI();
 }
+
+// =======================
+// USAR CORS
+// =======================
+app.UseCors(builder => builder
+.AllowAnyOrigin()
+.AllowAnyMethod()
+.AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
